@@ -1,0 +1,28 @@
+config:
+  limits.cpu: "1"
+  limits.memory: 1GB
+  limits.memory.swap: "false"
+  linux.kernel_modules: ip_tables,ip6_tables,nf_nat,overlay,br_netfilter
+  raw.lxc: |
+    lxc.apparmor.profile=unconfined
+    lxc.mount.auto=proc:rw sys:rw cgroup:rw
+    lxc.cap.drop=
+    lxc.cgroup.devices.allow=a
+    lxc.mount.entry: /dev/kmsg dev/kmsg none defaults,bind,create=file
+    lxc.hook.autodev: sh -c "mknod -m 0644 ${LXC_ROOTFS_MOUNT}/dev/kmsg c 1 11"
+    sys:rw"
+  security.privileged: "true"
+  security.nesting: "true"
+description: LXD profile for Kubernetes
+devices:
+  eth0:
+    name: eth0
+    nictype: bridged
+    parent: lxdbr0
+    type: nic
+  root:
+    path: /
+    pool: default
+    type: disk
+name: k8s
+used_by: []
