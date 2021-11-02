@@ -1,6 +1,6 @@
 config:
-  limits.cpu: "1"
-  limits.memory: 1GB
+  limits.cpu: "2"
+  limits.memory: 2GB
   limits.memory.swap: "false"
   linux.kernel_modules: ip_tables,ip6_tables,nf_nat,overlay,br_netfilter
   raw.lxc: |
@@ -17,6 +17,7 @@ description: LXD profile for Kubernetes
 devices:
   eth0:
     name: eth0
+    ipv4.address: 10.131.190.201/24
     nictype: bridged
     parent: lxdbr0
     type: nic
