@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: prod-redis
+  namespace: default
+spec:
+  containers:
+    - image: redis:alpine
+      imagePullPolicy: IfNotPresent
+  name: prod-redis

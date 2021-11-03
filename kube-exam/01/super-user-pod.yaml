@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: super-user-pod
+spec:
+  containers:
+    - image: busybox:1.28
+      name: super-user-pod
+      command: [ "sleep" ]
+      args: [ "1000" ]
+    command: [ "sleep","4800" ]
+    securityContext:
+      capabilities:
+      add: [ "SYS_TIME" ]
