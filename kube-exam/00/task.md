@@ -7,15 +7,18 @@ kubectl run nginx-pod --image=nginx:alpine --restart=Never
 Deploy a messaging pod using the redis:alpine image with the labels set to tier=msg.
 
 ```
-kubectl run messaging --generator=run-pod/v1 --restart=Never --image=redis:alpine -l tier=msg
+kubectl run messaging --restart=Never --image=redis:alpine -l tier=msg
 ```
 ##No.3
 Create a namespace named apx-x9984574
+```
 kubectl create ns apx-x9984574
-
+```
 ##No.4
 Get the list of nodes in JSON format and store it in a file at /opt/outputs/nodes-z3444kd9.json
 ```
+sudo mkdir /opt/outputs/ 
+sudo chmod 777 /opt/outputs/
 kubectl get nodes -o json > /opt/outputs/nodes-z3444kd9.json
 ```
 ##No.5
@@ -36,7 +39,7 @@ kubectl scale deploy hr-web-app --replicas=2
 Create a static pod named static-busybox that uses the busybox image and the command sleep 1000
 ```
 sudo cp static-busybox.yaml /etc/kubernetes/manifests/
-sduo systemctl restart kubelet
+sudo systemctl restart kubelet
 ```
 ##No.8
 Create a static pod named static-busybox that uses the busybox image and the command sleep 1000
