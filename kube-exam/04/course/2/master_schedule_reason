@@ -1,0 +1,1 @@
+Because master nodes prefferd for launch kubernetes system pods like kube-api-server core-dns ... etc and ofcource etdc pods that are very sensitive for load capacity so if want make sure into stable claster performanse we should keep workload from master nodes.

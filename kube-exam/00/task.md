@@ -42,8 +42,9 @@ sudo cp static-busybox.yaml /etc/kubernetes/manifests/
 sudo systemctl restart kubelet
 ```
 ##No.8
-Create a static pod named static-busybox that uses the busybox image and the command sleep 1000
+Create a POD in the finance namespace named temp-bus with the image redis:alpine
 ```
+kubectl create ns finance
 kubectl run temp-bus -n finance --image=redis:alpine --restart=Never
 ```
 ##No.9

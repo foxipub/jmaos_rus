@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-im-ready
+  labels:
+    app: nginx
+    id: cross-server-ready
+spec:
+  ports:
+  - port: 80
+    name: web
+  clusterIP: None
+  selector:
+    id: cross-server-ready
